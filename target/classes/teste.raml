@@ -1,0 +1,29 @@
+#%RAML 0.8
+title: Sample API
+
+version: 1.0
+baseUri: http://go-beer-gp.cloudhub.io
+securitySchemes: 
+  - basic: 
+      description: Basic Authentication
+      type: Basic Authentication
+
+/demandas:
+  /{id_und}:
+        description: Efetua a carga no TM de demandas existentes no SIC para a unidade informada.
+        uriParameters:
+          id_und:
+            description: id_und
+            type: integer
+            example: 409    
+        get:
+          securedBy: [basic]
+          description: Efetua a carga no TM de demandas existentes no SIC para a unidade informada.
+          responses: 
+            200:
+              body:
+                application/json:
+                  example: |
+                    {
+                          "response": "Demandas recebidas com sucesso e salvas na fila para posterior processamento."
+                     }

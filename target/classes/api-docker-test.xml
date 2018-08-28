@@ -15,7 +15,7 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
         <db:select config-ref="MySQL_Configuration" doc:name="Database">
             <db:parameterized-query><![CDATA[SELECT * FROM treinamento.cliente;]]></db:parameterized-query>
         </db:select>
-        <logger message="Ap&#243;s retorno DB: #[payload]" level="INFO" doc:name="Logger"/>
+        <logger message="Payload: #[payload]" level="INFO" doc:name="Logger"/>
         <json:object-to-json-transformer doc:name="Object to JSON"/>
     </flow>
 </mule>
